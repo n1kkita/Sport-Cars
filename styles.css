@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: #171616;
+    color: #fff;
+    line-height: 1.6;
+}
+.title {
+    font-size: 2rem; /* базовый размер текста */
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.specs-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.spec-details {
+    font-size: 1.1rem;
+}
+
+/* Адаптация текста для меньших экранов */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .specs-title {
+        font-size: 1.2rem;
+    }
+
+    .spec-details {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .specs-title {
+        font-size: 1rem;
+    }
+
+    .spec-details {
+        font-size: 0.8rem;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(31, 31, 31, 0.71);
+    position: fixed;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    box-shadow: inset 0 -25px 30px rgba(31, 31, 31, 0.5);
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+.gif-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.gif-container img {
+    width: 240px;
+    height: 135px;
+    margin-top: -17px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-card-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    min-width: 375px;
+    margin-bottom: 20px;
+}
+.car-description{
+    display: flex;
+    padding-left: 5px;
+    align-items: center;
+    gap: 10px;
+    max-width: 600px;
+}
+.car-card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.car-card img {
+    display: flex;
+    width: 100%; /* Ширина 100%, чтобы занимать всю доступную ширину */
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    height: auto;
+    box-shadow:  30px 30px 30px rgba(31, 31, 31, 0.5);
+    border: 2px black solid;
+    border-radius: 10px;
+    transition: transform 0.3s;
+
+    z-index: 1000;
+}
+
+.car-card img:hover {
+    transform: scale(1.06);
+    cursor: pointer;
+}
+
+.photo-folder {
+
+    position: absolute;
+    top: -5px;
+    left: 102%; /* Миниатюры размещаются справа за превью */
+    width: 100%; /* Ширина 100%, чтобы занимать всю доступную ширину */
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    height: auto;
+    transform: translateX(-100%); /* За пределами контейнера до открытия */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 0;
+}
+
+.photo-folder img {
+    position: absolute; /* Абсолютное позиционирование для наложения */
+    width: 100%; /* Ширина 100%, чтобы занимать всю доступную ширину */
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 30px 30px 30px rgba(31, 31, 31, 0.5);
+    border: 2px solid black;
+    transition: transform 0.3s;
+}
+
+/* Положение каждого изображения для наложения */
+.photo-folder img:nth-child(1) {
+    top: 5px;
+    left: 0;
+    z-index: 3; /* Устанавливаем z-index для правильного наложения */
+}
+
+
+.photo-folder img:hover {
+    transform: scale(1.06);
+    cursor: pointer;
+    z-index: 4; /* При наведении выводим на передний план */
+}
+
+/* Когда папка открыта */
+.photo-folder.open {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+#fullImageContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#fullImageContainer img {
+    width: 80%;
+    height: auto;
+    max-width: 1000px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+.image-container {
+    perspective: 1000px; /* Создаем 3D-пространство */
+}
+
+.image-container img {
+    transition: transform 0.5s; /* Анимация переворота */
+    transform-style: preserve-3d;
+}
+
+.image-container img.flip {
+    transform: rotateY(90deg); /* Поворот на 90 градусов */
+}
+
+.image-container img.flip-back {
+    transform: rotateY(180deg); /* Возврат на 180 градусов */
+}
+
+
+
+.corner-button {
+    position: absolute;
+    top: 20px;  /* Отступ сверху */
+    left: 660px;  /* Отступ справа */
+    z-index: 9999;
+    padding: 0;
+    background-color: rgba(115, 115, 115, 0.47); /* Цвет кнопки */
+    color: white;  /* Цвет текста */
+    border: none;
+    font-size: 64px;
+    border-radius: 50%;
+    height: 64px;
+    cursor: pointer;
+}
+.my-icon{
+    margin-bottom: 7px;
+}
+.corner-button:hover {
+    background-color: rgba(31, 31, 31, 0.47); /* Изменение цвета кнопки при наведении */
+}
+@media screen and (max-width: 600px) {
+    .nav-link.pc {
+        display: none;
+    }
+    .nav-link.mb {
+        display: none;
+    }
+    nav{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .mobile-nav{
+        display: block;
+        height: 0;
+        width: 100%;
+    }
+    .toggle-btn {
+        display: block;
+    }
+}
+@media screen and (min-width: 600px) {
+    .nav-link {
+        display: block;
+    }
+    .mobile-nav{
+        display: none;
+        height: 0;
+        width: 100%;
+    }
+    .toggle-btn {
+        display: none;
+    }
+}
+.nav-link:hover {
+    background-color: #fcfcfc;
+    border: inset black 1px;
+    color: #3a3a3a;
+}
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #3a3a3a;
+    padding: 25px;
+    text-align: center;
+}
+.logo {
+    position: fixed; /* Абсолютне позиціонування для логотипу */
+    left: 10px; /* Відступ від лівого краю */
+    top: 5%; /* Вертикальне вирівнювання по центру */
+    transform: translateY(-50%); /* Вирівнювання по вертикалі */
+}
+.nav-link {
+    color: #fcfcfc;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+}
+
+ul li {
+    background: #cccccc;
+    color: white;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+.car-content{
+    display: flex;  justify-content: space-between; gap: 50px; margin-bottom: 50px
+}
+@media screen and (max-width: 770px) {
+    .logo{
+        display: none;
+    }
+
+}
+@media screen and (max-width: 900px) {
+    .car-content {
+        display: block;
+    }
+    .car-description {
+        display: flex;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+}
+@media screen and (min-width: 900px) {
+    .car-content {
+        display: flex;
+    }
+    .car-description {
+        display: flex;
+        align-items: center;
+    }
+}

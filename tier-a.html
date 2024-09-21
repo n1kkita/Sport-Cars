@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Cars</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+
+<nav>
+    <img src="img/1x/logo/logo.svg" class="logo" width="240" height="120">
+    <button class="toggle-btn">&#9776;</button>
+    <a class="nav-link pc" href="tier-s.html">Tier S</a>
+    <a class="nav-link pc" href="tier-a.html">Tier A</a>
+    <a class="nav-link pc" href="tier-b.html">Tier B</a>
+    <a class="nav-link pc" href="tier-c.html">Tier C</a>
+
+    <div class="mobile-nav">
+        <br>
+        <a class="nav-link mb" href="tier-s.html">Tier S</a>
+        <br>
+        <a class="nav-link mb" href="tier-a.html">Tier A</a>
+        <br>
+        <a class="nav-link mb" href="tier-b.html">Tier B</a>
+        <br>
+        <a class="nav-link mb" href="tier-c.html">Tier C</a>
+        <br>
+    </div>
+
+</nav>
+
+
+<!-- Hero Section with Image Galleries -->
+<section>
+    <div class="main-content">
+        <div class="car-content">
+            <div class="car-card-wrapper">
+                <div class="car-card">
+                    <img src="img/1x/lambo/lambo(fill).png" onclick="openImage(this.src)" alt="Lamborghini Hurricane" />
+                </div>
+                <div class="car-card">
+                    <img src="img/1x/lambo/lambo(fill)-2.png" onclick="openImage(this.src)" alt="Lamborghini Hurricane" />
+                </div>
+            </div>
+            <div class="car-description">
+                <div style="width: 50%;">
+                    <div class="title">Lamborghini Huracan</div>
+                    <div class="description">
+                        Lamborghini Huracan – це спортивний автомобіль преміум-класу, який поєднує у собі
+                        вражаючу продуктивність, передові технології та агресивний стиль. Його потужний двигун
+                        та інноваційна підвіска забезпечують захоплюючу динаміку і виняткову керованість.
+                    </div>
+                </div>
+                <div class="specs"  style="width: 50%;">
+                    <div class="specs-title">Технічні характеристики:</div>
+                    <div>
+                        <br>
+                        <strong>Максимальна швидкість:</strong> 320 км/год
+
+                        <br>
+                        <strong>Розгін до 100 км/год:</strong> 2,9 секунди
+
+                        <br>
+                        <strong>Двигун:</strong> 4,0-літровий V8 з двома турбонагнітачами
+
+                        <br>
+                        <strong>Потужність:</strong> 640 к.с.
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="car-content">
+            <div class="car-card-wrapper">
+                <div class="car-card">
+                    <img src="img/1x/maclaren/maclaren%202.png" onclick="openImage(this.src)" alt="Maclaren" />
+                </div>
+                <div class="car-card">
+                    <img src="img/1x/maclaren/maclaren%20(fill).png" onclick="openImage(this.src)" alt="Maclaren" />
+                </div>
+            </div>
+            <div class="car-description">
+                <div style="width: 50%;">
+                    <div class="title">McLaren P1</div>
+                    <div class="description">
+                        McLaren P1 – це один із найінноваційніших та найпотужніших гіперкарів світу, створений для поєднання приголомшливої швидкості з передовими технологіями. Це наступник легендарного McLaren F1, і він продовжує задавати стандарти для висококласних автомобілів.
+                    </div>
+                </div>
+                <div class="specs" style="width: 50%;">
+                    <div class="specs-title">Технічні характеристики:</div>
+                    <div>
+                        <br>
+                        <strong>Максимальна швидкість:</strong> 350 км/год
+                        <br>
+                        <strong>Розгін до 100 км/год:</strong> 2,8 секунди
+                        <br>
+                        <strong>Двигун:</strong> 3,8-літровий V8 з подвійним турбонагнітачем, у поєднанні з електродвигуном
+                        <br>
+                        <strong>Сукупна потужність:</strong> 903 к.с. (727 к.с. від бензинового двигуна та 176 к.с. від електродвигуна)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Fullscreen Image Modal -->
+    <div id="fullImageContainer" onclick="closeImage()">
+        <span class="close-btn">&times;</span>
+        <img id="fullImage" src="" alt="Full Image">
+    </div>
+</section>
+<script src="nav-bar.js"></script>
+<script src="img-scripts.js"></script>
+</body>
+</html>

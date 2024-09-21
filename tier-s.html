@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Cars</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+
+<nav>
+    <img src="img/1x/logo/logo.svg" class="logo" width="240" height="120">
+    <button class="toggle-btn">&#9776;</button>
+    <a class="nav-link pc" href="tier-s.html">Tier S</a>
+    <a class="nav-link pc" href="tier-a.html">Tier A</a>
+    <a class="nav-link pc" href="tier-b.html">Tier B</a>
+    <a class="nav-link pc" href="tier-c.html">Tier C</a>
+
+    <div class="mobile-nav">
+        <br>
+        <a class="nav-link mb" href="tier-s.html">Tier S</a>
+        <br>
+        <a class="nav-link mb" href="tier-a.html">Tier A</a>
+        <br>
+        <a class="nav-link mb" href="tier-b.html">Tier B</a>
+        <br>
+        <a class="nav-link mb" href="tier-c.html">Tier C</a>
+        <br>
+    </div>
+</nav>
+
+
+<!-- Hero Section with Image Galleries -->
+<section>
+    <div class="main-content">
+        <div class="car-content">
+            <div class="car-card-wrapper">
+                <div class="car-card">
+                    <img src="img/1x/bugatti/bugatti(fill).png" onclick="openImage(this.src)" alt="Bugatti Veyron" />
+                </div>
+            </div>
+            <div class="car-description">
+                <div style="width: 50%;">
+                    <div class="title">Bugatti Veyron</div>
+                    <div class="description">
+                        Bugatti Veyron – це спортивний автомобіль преміум-класу, який встановлює нові стандарти в автомобільному світі завдяки своїй неймовірній продуктивності та передовим технологіям. Своїм агресивним стилем і високими показниками динаміки, Veyron пропонує захоплюючий досвід водіння та виняткову керованість.
+                    </div>
+                </div>
+                <div class="specs" style="width: 50%;">
+                    <div class="specs-title">Технічні характеристики:</div>
+                    <div>
+                        <br>
+                        <strong>Максимальна швидкість:</strong> 407 км/год
+                        <br>
+                        <strong>Розгін до 100 км/год:</strong> 2,5 секунди
+                        <br>
+                        <strong>Двигун:</strong> 8,0-літровий W16 з чотирма турбонагнітачами
+                        <br>
+                        <strong>Потужність:</strong> 1,001 к.с.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Fullscreen Image Modal -->
+    <div id="fullImageContainer" onclick="closeImage()">
+        <span class="close-btn">&times;</span>
+        <img id="fullImage" src="" alt="Full Image">
+    </div>
+</section>
+<script src="nav-bar.js"></script>
+<script src="img-scripts.js"></script>
+</body>
+</html>
